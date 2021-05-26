@@ -26,20 +26,81 @@ git clone https://github.com/miguelpimentel/shap_feature_selection.git
 
 ### Install dependecies 
 
-The dependencies could be installed using pip, the file with dependecies is presented in root folder, requirements.txt.
+#### Mini conda
 
+Install the mini conda to create an enviroment, it's a nice solution to handle different versions of libraries and packages:
+
+* [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+#### Install jupyter 
+
+```bash
+conda install -y jupyter
+```
+
+### Create enviroment
+
+Add the code below to an xai.yml file. This add the required packages and versions to each library.
+
+```
+name: xai
+ 
+dependencies:
+    - python=3.9
+    - pip>=19.0
+    - jupyter
+    - scikit-learn
+    - scipy
+    - pandas
+    - pandas-datareader
+    - matplotlib
+    - pillow
+    - tqdm
+    - requests
+    - h5py
+    - pyyaml
+    - flask
+    - boto3
+    - pip:
+        - lime
+        - shap
+
+```
+
+The following command create an enviroment with the mentioned packages and libraries
+
+conda env create -f xai.yml -n xai
+
+#### Use Enviroment
+
+```bash
+conda activate xai
+```
+
+#### Add Enviroment to notebook 
+
+```bash
+conda install nb_conda
+```
+
+```bash
+python -m ipykernel install --user --name xai --display-name "XAI - Python Enviroment"
+```
 
 ### Donwload the Datasets
 
-The data set is available at:
+The datasets are available at:
 
-* 
+*  [Dataset](https://drive.google.com/drive/folders/1yWUv0vK79ahxmHUuFKORJSyOwq_tiX54?usp=sharing
 
 ### Update Paths
 
-You have to set the correct path for each dataset.
+You have to set the correct path for each dataset, that means:
 
-* 
+* Add de creditcard.csv file inside the folder credit_card_fraud/dataset/
+
+* Add de data-te.csv file inside the folder cancer_breast/dataset/.
+
 
 ## Run 
 
